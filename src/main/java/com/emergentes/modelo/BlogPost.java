@@ -44,4 +44,8 @@ public class BlogPost {
     public String toString() {
         return "BlogPost{" + "id=" + id + ", fecha=" + fecha + ", titulo=" + titulo + ", contenido=" + contenido + '}';
     }           
+
+    public void setFecha(String fecha) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
