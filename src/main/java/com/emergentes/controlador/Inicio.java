@@ -89,11 +89,25 @@ public class Inicio extends HttpServlet {
         bp.setFecha(fecha);
         bp.setTitulo(titulo);
         bp.setContenido(contenido);
-    }
-    
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
+        
+        if(id==0){
+            try{
+                BlogPostDAO dao = new BlogPostDAOimpl();
+                dao.insert(bp);
+                response.sendRedirect(request.getContextPath()+"/inicio");
+            } catch (Exception ex){
+                System.out.println("Error "+ ex.getMessage());
+            }
+        }else{
+            try{
+                BlogPostDAO dao = new BlogPostDAOimpl();
+                dao.update(bp);
+                response.sendRedirect(request.getContextPath()+"/inicio");
+            } catch (Exception ex){
+                System.out.println("Error en Post"+ ex.getMessage());
+            }
+        }
+            
+    }        
 
 }
